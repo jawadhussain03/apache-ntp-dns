@@ -1,0 +1,21 @@
+---
+# tasks file for apache
+- name: install httpd
+  yum:
+    name: ['httpd', 'httpd-tools']
+    state: present
+- name: copy httpd.conf
+  copy:
+    src: files/httpd.conf
+    dest: /etc/httpd/conf/httpd.conf
+  register: conf
+- name: copy index.html 
+  copy:
+    src: files/index.html
+    dest: /var/www/html/index.html 
+  register: conf1
+- name: restart httpd
+  service:
+    name: httpd
+    state: restarted
+  when: conf.changed or conf1.changed 

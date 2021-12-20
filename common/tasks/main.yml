@@ -1,0 +1,15 @@
+---
+# tasks file for common
+- name: install ntp
+  yum:
+    name: ntp
+    state: present
+- name: copy ntp.conf
+  template: 
+    src: templates/ntp.conf
+    dest: /etc/ntp.conf
+    #notify: restart ntpd
+- name: copy resolv.conf
+  template:
+    src: templates/resolv.conf
+    dest: /etc/resolv.conf

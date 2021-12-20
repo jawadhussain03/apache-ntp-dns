@@ -1,0 +1,4 @@
+---
+# vars file for common
+ntpservers: ['0.centos.pool.ntp.org', '0.centos.pool.ntp.org', '3.centos.pool.ntp.org']
+nameservers: ['192.168.0.1', '8.8.8.8', '8.8.4,4'] 
